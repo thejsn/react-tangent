@@ -10,6 +10,8 @@ import Tangent from 'react-tangent';
 <Tangent keys={ ['A', 'B', 'C' ] } />
 ```
 
+[More examples here](https://thejsn.github.io/react-tangent/)
+
 ## Properties
 
 | prop | default | description |
