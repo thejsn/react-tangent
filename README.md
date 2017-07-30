@@ -2,6 +2,12 @@
 
 Create a simple virtual keyboard in SVG.
 
+## Install
+
+```
+npm i -S react-tangent
+```
+
 ## Example
 
 ```
