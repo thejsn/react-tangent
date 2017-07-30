@@ -1,7 +1,7 @@
 {
   "name": "react-tangent",
   "version": "1.0.0",
-  "description": "react-tangent React component",
+  "description": "Create a simple virtual keyboard in SVG",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -32,10 +32,10 @@
     "react-dom": "^15.6.1"
   },
   "author": "",
-  "homepage": "",
+  "homepage": "https://thejsn.github.io/react-tangent/",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/thejsn/react-tangent",
   "keywords": [
-    "react-component"
+    "virtual keyboard"
   ]
 }
