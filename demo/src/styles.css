@@ -1,0 +1,50 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+pre, .example {
+	padding: 12px;
+	margin: 24px 0 48px;
+	background: #fafafa;
+}
+
+pre {
+	background: #222;
+	color: #ebebeb;
+}
+
+.example {
+	background: #f2f3f1;
+	margin-bottom: 120px;
+}
+
+.keyboard-container {
+	max-width: 100%;
+	width: 820px;
+}
+
+svg {
+	max-width: 100%;
+}
+
+svg rect {
+	cursor: pointer;
+	transition: all 0.4s;
+}
+
+svg text {
+	pointer-events: none;
+	user-select: none;
+}
+
+svg rect:hover {
+	fill: #888;
+}
+
+.tangent-key--wide {
+  fill: #5a3333;
+}
+
+.tangent-key--wide ~ text{
+  fill: #fff;
+}

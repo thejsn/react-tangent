@@ -3,5 +3,8 @@ module.exports = {
   npm: {
     esModules: true,
     umd: false
+  },
+  babel: {
+    plugins: 'styled-jsx/babel'
   }
 }
