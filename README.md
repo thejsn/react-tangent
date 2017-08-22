@@ -1,6 +1,6 @@
 # react-tangent
 
-Create a simple virtual keyboard in SVG.
+Create a simple, virtual SVG keyboard.
 
 ## Install
 
@@ -112,6 +112,10 @@ pressedKey(data) {
   const { id, label } = data;
 }
 ```
+
+## React alternatives
+
+`react-tangent` works well with [Preact](https://github.com/developit/preact).
 
 
 ## License
