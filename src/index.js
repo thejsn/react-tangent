@@ -46,7 +46,7 @@ export default class Tangent extends Component {
 
       { this.getBase64FontBlob() }
 
-      { keys.map((key, i) => (
+      { keys ? keys.map((key, i) => (
         <Group x={ key.x } y={ key.y } key={ i }>
           <Rect
             width={ key.width }
@@ -69,7 +69,7 @@ export default class Tangent extends Component {
             { key.label }
           </Text>
         </Group>
-      ))}
+      )) : null }
       </svg>
     )
   }

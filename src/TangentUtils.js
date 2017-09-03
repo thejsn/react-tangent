@@ -181,6 +181,10 @@ export default class TangentUtils {
 	 */
 	parseKeys(keys) {
 
+		if(!keys || !keys.length) {
+			return null;
+		}
+
 		let coords = null;
 		let dimensions = null;
 		let label = null;
@@ -213,6 +217,12 @@ export default class TangentUtils {
 	 * @memberOf TangentUtils
 	 */
 	getMapDimensions(keys) {
+		if(!keys || !keys.length) {
+			return {
+				width: 0,
+				height: 0
+			}
+		}
 		
 		if(typeof keys[0] === 'string') {
 			const columns = Math.max(this.options.maxCols, keys.length * this.options.defaultKeyWidth)
