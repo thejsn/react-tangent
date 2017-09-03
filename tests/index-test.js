@@ -76,4 +76,16 @@ describe('Tangent', () => {
       expect(parsed[0].y).toEqual(parsed[1].y);
     })
   })
+
+  it('Takes an empty keys array without breaking.', () => {
+    render(<Tangent keys={ [] } />, node, () => {
+    
+      const parser = new DOMParser();
+      const svgDoc = parser.parseFromString(node.innerHTML, "image/svg+xml");
+      const serialized = XMLS.serializeToString(svgDoc);
+      
+      expect(serialized).toContain('<svg');
+      expect(serialized).toNotContain('<parsererror');
+    })
+  })
 })
