@@ -53,7 +53,9 @@ export default class TangentUtils {
 			this.isset(key.x) && 
 			this.isset(key.y))
 		) {
-			const maxKeysOnRow = Math.floor(this.options.maxCols / this.options.defaultKeyWidth) || 1;
+			const maxKeysOnRow = Math.floor(
+				this.options.maxCols / this.options.defaultKeyWidth
+			) || 1;
 			
 			const col = this.options.maxCols > 0 ? 
 						(i % maxKeysOnRow) * this.options.defaultKeyWidth : 
@@ -84,7 +86,8 @@ export default class TangentUtils {
 	}
 
 	/**
-	 * Takes the size of a key in number of grid cells and returns an object with dimensions, padding included.
+	 * Takes the size of a key in number of grid cells and 
+	 * returns an object with dimensions, padding included.
 	 * 
 	 * @param {number} cols Number of columns the key covers.
 	 * @param {number} rows Number of rows the key covers.
@@ -94,11 +97,19 @@ export default class TangentUtils {
 	 */
 	toDimensions(cols, rows) {
 
+		cols = Math.max(cols, 1);
+		rows = Math.max(rows, 1);
+
+		const cellWidth = Math.max(this.options.cellWidth, 1);
+		const cellHeight = Math.max(this.options.cellHeight, 1);
+		const width = (cols * cellWidth) - (this.options.innerPadding * 2);
+		const height = (rows * cellHeight) - (this.options.innerPadding * 2);
+
 		return {
 			x: this.options.innerPadding,
 			y: this.options.innerPadding,
-			width: (cols * this.options.cellWidth) - (this.options.innerPadding * 2),
-			height: (rows * this.options.cellHeight) - (this.options.innerPadding * 2)
+			width: Math.max(width, 1),
+			height: Math.max(height, 1)
 		}
 	}
 
@@ -121,7 +132,8 @@ export default class TangentUtils {
 	}
 
 	/**
-	 * Takes key data from map object and returns an object with x, y, width and height properties.
+	 * Takes key data from map object and returns an object
+	 * with x, y, width and height properties.
 	 * 
 	 * @param {object} key 
 	 * @returns {object}
