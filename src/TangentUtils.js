@@ -26,6 +26,18 @@ export default class TangentUtils {
 	}
 
 	/**
+	 * Check if a given value is null or undefined.
+	 * 
+	 * @param {any} value 
+	 * @returns {boolean} true if not null or undefined.
+	 * 
+	 * @memberOf TangentUtils
+	 */
+	isset(value) {
+		return typeof value !== 'undefined' && value !== null;
+	}
+
+	/**
 	 * Takes the raw key map data and returns the pixel position of the key.
 	 * Should sanitize and throw errors if something is wrong.
 	 * 
@@ -37,8 +49,9 @@ export default class TangentUtils {
 	getCoordinates(key, i) {
 		if(typeof key === 'string' || 
 		  (typeof key === 'object' && 
-			!key.position && 
-			!key.x && !key.y)
+			this.isset(key.position) && 
+			this.isset(key.x) && 
+			this.isset(key.y))
 		) {
 			const maxKeysOnRow = Math.floor(this.options.maxCols / this.options.defaultKeyWidth) || 1;
 			
