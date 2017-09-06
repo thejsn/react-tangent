@@ -88,4 +88,10 @@ describe('Tangent', () => {
       expect(serialized).toNotContain('<parsererror');
     })
   })
+
+  it('Calls event handler when dimensions change.', (done) => {
+    render(<Tangent onDimensionsChange={ dimensions => {
+        done()
+      } } keys={ ['a', 'b'] } />, node, () => {})
+  })
 })

@@ -36,6 +36,7 @@ import Tangent from 'react-tangent';
 | fontEmbed 		| null			| A base64 encoded woff font to be embedded inside the svg. Might be useful to avoid cross-domain issues in some browsers. |
 | keys 				| []			| An array of keys that make up the keyboard. See more info below. |
 | onKeyPress 		| null		| Callback for key presses. See more below. |
+| onDimensionsChange 		| null		| Callback when the svg size changes. An object is passed to the callback containing the width and height. |
 
 
 ### `keys`

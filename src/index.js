@@ -9,6 +9,16 @@ let FONT_NAME = '';
 
 export default class Tangent extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      keys: [],
+      width: 0,
+      height: 0
+    };
+  }
+
   getBase64FontBlob(name, base64blob) {
     if(name && base64blob) {
 
@@ -31,10 +41,37 @@ export default class Tangent extends Component {
     this.props.onKeyPress(data);
   }
 
-  render() {
-		const util = new TangentUtils(this.props);
-		const keys = util.parseKeys(this.props.keys);
+  updateState(props) {
+
+    const util = new TangentUtils(props);
+    const keys = util.parseKeys(props.keys);
     const { width, height } = util.getMapDimensions(keys);
+  
+    this.setState({
+      keys,
+      width,
+      height
+    });
+
+    if(width !== this.state.width || height !== this.state.height) {
+      this.props.onDimensionsChange({ width, height });
+    }
+  }
+
+  componentDidMount() {
+    this.updateState(this.props);
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    this.updateState(nextProps);
+  }
+  
+  render() {
+    const {
+      keys,
+      width,
+      height
+    } = this.state;
     
     return (
       <svg
@@ -89,5 +126,6 @@ Tangent.defaultProps = {
   fontSize: '30',
   fontEmbed: null,
   keys: [],
-  onKeyPress: () => {}
+  onKeyPress: () => {},
+  onDimensionsChange: () => {}
 }
