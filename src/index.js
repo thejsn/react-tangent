@@ -46,16 +46,16 @@ export default class Tangent extends Component {
     const util = new TangentUtils(props);
     const keys = util.parseKeys(props.keys);
     const { width, height } = util.getMapDimensions(keys);
-  
+    
+    if(width !== this.state.width || height !== this.state.height) {
+      this.props.onDimensionsChange({ width, height });
+    }
+    
     this.setState({
       keys,
       width,
       height
     });
-
-    if(width !== this.state.width || height !== this.state.height) {
-      this.props.onDimensionsChange({ width, height });
-    }
   }
 
   componentDidMount() {
