@@ -82,7 +82,7 @@ svg rect:hover {
   textColor={ '#333' }
   fontSize={ 14 }
   fontName={ 'serif' }
-  onKeyReleased={ console.log }
+  onKeyRelease={ console.log }
   keys={[
     {
       label: 'Tall!',
@@ -128,7 +128,7 @@ svg rect:hover {
             textColor={ '#333' }
             fontSize={ 14 }
             fontName={ 'serif' }
-            onKeyReleased={ console.log }
+            onKeyRelease={ console.log }
             keys={[
               {
                 label: 'Tall!',

@@ -46,7 +46,7 @@ export default class Tangent extends Component {
   }
 
   keyReleased(data) {
-    this.props.onKeyReleased(data);
+    this.props.onKeyRelease(data);
   }
 
   updateState(props) {
@@ -138,6 +138,6 @@ Tangent.defaultProps = {
   keys: [],
   onKeyPress: () => {},
   onKeyClick: () => {},
-  onKeyReleased: () => {},
+  onKeyRelease: () => {},
   onDimensionsChange: () => {}
 }

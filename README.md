@@ -37,7 +37,7 @@ import Tangent from 'react-tangent';
 | keys 				| []			| An array of keys that make up the keyboard. See more info below. |
 | onKeyClick 		| null		| Callback for key click. See more below. |
 | onKeyPress 		| null		| Callback for key pressed. See more below. |
-| onKeyReleased | null		| Callback for key released. See more below. |
+| onKeyRelease | null		| Callback for key released. See more below. |
 | onDimensionsChange 		| null		| Callback when the svg size changes. An object is passed to the callback containing the width and height. |
 
 
@@ -104,7 +104,7 @@ Key object has the following fields
 <Tangent 
   onKeyClick={ keyListener }
   onKeyPress={ keyListener }
-  onKeyReleased={ keyListener }
+  onKeyRelease={ keyListener }
   keys={ '12345'.split('') } />
 ```
 
