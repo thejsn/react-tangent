@@ -5,7 +5,8 @@ import './styles.css';
 
 class Demo extends Component {
   render() {
-    return <div>
+    return (
+    <div>
       <h1>react-tangent Demo</h1>
 
       <div className="keyboard-container">
@@ -59,7 +60,8 @@ svg rect:hover {
   borderRadius={ 20 }
   defaultKeyWidth={ 2 } // number of cells, not pixels
   fontSize={ 40 }
-  keys={ '1234567890'.split('') } />
+  keys={ '1234567890'.split('') }
+  onKeyClick={ console.log } />
 `}
           </pre>
           <Tangent
@@ -68,6 +70,7 @@ svg rect:hover {
             defaultKeyWidth={ 2 }
             fontSize={ 40 }
             keys={ '1234567890'.split('') }
+            onKeyClick={ console.log }
           />
         </div>
         <div className="example">
@@ -79,6 +82,7 @@ svg rect:hover {
   textColor={ '#333' }
   fontSize={ 14 }
   fontName={ 'serif' }
+  onKeyReleased={ console.log }
   keys={[
     {
       label: 'Tall!',
@@ -124,6 +128,7 @@ svg rect:hover {
             textColor={ '#333' }
             fontSize={ 14 }
             fontName={ 'serif' }
+            onKeyReleased={ console.log }
             keys={[
               {
                 label: 'Tall!',
@@ -169,6 +174,7 @@ svg rect:hover {
         </div>
       </div>
     </div>
+    );
   }
 }
 

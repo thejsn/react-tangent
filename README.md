@@ -35,7 +35,9 @@ import Tangent from 'react-tangent';
 | fontSize 			| '30'			| Font size of text in keys |
 | fontEmbed 		| null			| A base64 encoded woff font to be embedded inside the svg. Might be useful to avoid cross-domain issues in some browsers. |
 | keys 				| []			| An array of keys that make up the keyboard. See more info below. |
-| onKeyPress 		| null		| Callback for key presses. See more below. |
+| onKeyClick 		| null		| Callback for key click. See more below. |
+| onKeyPress 		| null		| Callback for key pressed. See more below. |
+| onKeyReleased | null		| Callback for key released. See more below. |
 | onDimensionsChange 		| null		| Callback when the svg size changes. An object is passed to the callback containing the width and height. |
 
 
@@ -98,16 +100,16 @@ Key object has the following fields
 
 ### `onKeyPress`
 
-Listen to key presses:
-
 ```
 <Tangent 
-  onKeyPress={ pressedKey } 
+  onKeyClick={ keyListener }
+  onKeyPress={ keyListener }
+  onKeyReleased={ keyListener }
   keys={ '12345'.split('') } />
 ```
 
 ```
-pressedKey(data) {
+keyListener(data) {
   // Will return id and label
   
   const { id, label } = data;

@@ -37,8 +37,16 @@ export default class Tangent extends Component {
     }
   }
 
-  clickedKey(data) {
+  keyClicked(data) {
+    this.props.onKeyClick(data);
+  }
+
+  keyPressed(data) {
     this.props.onKeyPress(data);
+  }
+
+  keyReleased(data) {
+    this.props.onKeyReleased(data);
   }
 
   updateState(props) {
@@ -94,7 +102,9 @@ export default class Tangent extends Component {
             altId={ key.altId }
             altLabel={ key.altLabel }
             borderradius={ this.props.borderRadius }
-            onClick={ this.clickedKey.bind(this) }
+            onClick={ this.keyClicked.bind(this) }
+            onPress={ this.keyPressed.bind(this) }
+            onRelease={ this.keyReleased.bind(this) }
           />
           
           <Text
@@ -127,5 +137,7 @@ Tangent.defaultProps = {
   fontEmbed: null,
   keys: [],
   onKeyPress: () => {},
+  onKeyClick: () => {},
+  onKeyReleased: () => {},
   onDimensionsChange: () => {}
 }
