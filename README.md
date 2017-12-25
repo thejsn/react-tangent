@@ -98,7 +98,7 @@ Key object has the following fields
 ]} />
 ```
 
-### `onKeyPress`
+### Key listeners
 
 ```
 <Tangent 
