@@ -7,7 +7,7 @@ import Rect from './Rect';
 let FONT_BLOB = '';
 let FONT_NAME = '';
 
-const DEBOUNCE_SENSITIVITY = 500;
+const DEBOUNCE_SENSITIVITY = 800;
 
 export default class Tangent extends Component {
 
@@ -51,8 +51,6 @@ export default class Tangent extends Component {
     // Block the press event if another event with the same
     // data but different event type was executed recently.
     if( this._latestKeyPress &&
-        this._latestKeyPress.label === data.label &&
-        this._latestKeyPress.id === data.id &&
         this._latestKeyPress.type !== data.type) { return; }
     
     this._latestKeyPress = data;
@@ -67,8 +65,6 @@ export default class Tangent extends Component {
     // Block the release event if another event with the same
     // data but different event type was executed recently.
     if( this._latestKeyRelease &&
-        this._latestKeyRelease.label === data.label &&
-        this._latestKeyRelease.id === data.id &&
         this._latestKeyRelease.type !== data.type) { return; }
   
     this._latestKeyRelease = data;
