@@ -1,5 +1,9 @@
 import React from 'react';
 
+const TOUCH = 'touch';
+const MOUSE = 'mouse';
+
+
 const Rect = ({
 	width, height, fill, label, id, 
 	altId, altLabel, borderradius,
@@ -19,11 +23,23 @@ const Rect = ({
 				label,
 				id
 			}) }
+			onTouchStart={ () => onPress({
+				type: TOUCH,
+				label,
+				id
+			}) }
+			onTouchEnd={ () => onRelease({
+				type: TOUCH,
+				label,
+				id
+			}) }
 			onMouseDown={ () => onPress({
+				type: MOUSE,
 				label,
 				id
 			}) }
 			onMouseUp={ () => onRelease({
+				type: MOUSE,
 				label,
 				id
 			}) }

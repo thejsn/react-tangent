@@ -17,6 +17,9 @@ export default class Tangent extends Component {
       width: 0,
       height: 0
     };
+
+    this._latestKeyPress = null;
+    this._latestKeyRelease = null;
   }
 
   getBase64FontBlob(name, base64blob) {
@@ -42,10 +45,34 @@ export default class Tangent extends Component {
   }
 
   keyPressed(data) {
+    
+    // Block press event if another was executed less than
+    // 300ms ago with same data but different event type.
+    if( this._latestKeyPress &&
+        this._latestKeyPress.label === data.label &&
+        this._latestKeyPress.id === data.id &&
+        this._latestKeyPress.type !== data.type) { return; }
+    
+    this._latestKeyPress = data;
+
+    setTimeout(() => { this._latestKeyPress = null; }, 300);
+
     this.props.onKeyPress(data);
   }
-
+  
   keyReleased(data) {
+    
+    // Block release event if another was executed less than
+    // 300ms ago with same data but different event type.
+    if( this._latestKeyRelease &&
+        this._latestKeyRelease.label === data.label &&
+        this._latestKeyRelease.id === data.id &&
+        this._latestKeyRelease.type !== data.type) { return; }
+  
+    this._latestKeyRelease = data;
+
+    setTimeout(() => { this._latestKeyRelease = null; }, 300);
+
     this.props.onKeyRelease(data);
   }
 
