@@ -7,6 +7,8 @@ import Rect from './Rect';
 let FONT_BLOB = '';
 let FONT_NAME = '';
 
+const DEBOUNCE_SENSITIVITY = 500;
+
 export default class Tangent extends Component {
 
   constructor(props) {
@@ -46,8 +48,8 @@ export default class Tangent extends Component {
 
   keyPressed(data) {
     
-    // Block press event if another was executed less than
-    // 300ms ago with same data but different event type.
+    // Block the press event if another event with the same
+    // data but different event type was executed recently.
     if( this._latestKeyPress &&
         this._latestKeyPress.label === data.label &&
         this._latestKeyPress.id === data.id &&
@@ -55,15 +57,15 @@ export default class Tangent extends Component {
     
     this._latestKeyPress = data;
 
-    setTimeout(() => { this._latestKeyPress = null; }, 300);
+    setTimeout(() => { this._latestKeyPress = null; }, DEBOUNCE_SENSITIVITY);
 
     this.props.onKeyPress(data);
   }
   
   keyReleased(data) {
     
-    // Block release event if another was executed less than
-    // 300ms ago with same data but different event type.
+    // Block the release event if another event with the same
+    // data but different event type was executed recently.
     if( this._latestKeyRelease &&
         this._latestKeyRelease.label === data.label &&
         this._latestKeyRelease.id === data.id &&
@@ -71,7 +73,7 @@ export default class Tangent extends Component {
   
     this._latestKeyRelease = data;
 
-    setTimeout(() => { this._latestKeyRelease = null; }, 300);
+    setTimeout(() => { this._latestKeyRelease = null; }, DEBOUNCE_SENSITIVITY);
 
     this.props.onKeyRelease(data);
   }
