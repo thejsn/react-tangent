@@ -5,7 +5,7 @@ const MOUSE = 'mouse';
 
 
 const Rect = ({
-	width, height, fill, label, id, 
+	width, height, fill, label, id, index,
 	altId, altLabel, borderradius,
 	onClick, onPress, onRelease
 }) => {
@@ -14,34 +14,39 @@ const Rect = ({
 					 ('' + altId) 	||
 					 ('' + altLabel);
 	
-	const className = 'tangent-key tangent-key--' + 
+	const className = 'tangent-key tangent-key--index-' + index + ' tangent-key--' + 
 		class_id.replace(/[\~\!\@\$\%\^\&\*\(\)\+\=\,\.\/\'\;\:\"\?\>\<\[\]\\\{\}\|\`\#\s]/g, '-')
 	
 	return (
 		<rect
 			onClick={ () => onClick({
 				label,
-				id
+				id,
+				index
 			}) }
 			onTouchStart={ () => onPress({
 				type: TOUCH,
 				label,
-				id
+				id,
+				index
 			}) }
 			onTouchEnd={ () => onRelease({
 				type: TOUCH,
 				label,
-				id
+				id,
+				index
 			}) }
 			onMouseDown={ () => onPress({
 				type: MOUSE,
 				label,
-				id
+				id,
+				index
 			}) }
 			onMouseUp={ () => onRelease({
 				type: MOUSE,
 				label,
-				id
+				id,
+				index
 			}) }
 			className={ className }
 			fill={ fill }

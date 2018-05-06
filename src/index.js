@@ -126,6 +126,7 @@ export default class Tangent extends Component {
             label={ key.label }
             altId={ key.altId }
             altLabel={ key.altLabel }
+            index={ i }
             borderradius={ this.props.borderRadius }
             onClick={ this.keyClicked.bind(this) }
             onPress={ this.keyPressed.bind(this) }
