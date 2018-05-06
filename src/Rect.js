@@ -33,8 +33,8 @@ const Rect = ({
 			height={ height }
 			data-id={ id }
 			data-label={ label }
-			data-altId={ altId }
-			data-altLabel={ altLabel }
+			data-altid={ altId }
+			data-altlabel={ altLabel }
 			rx={ borderradius }
 		></rect>
 	);
